@@ -2,6 +2,7 @@ extends Node2D
 
 
 var pipe_scene := preload("res://Objects/Pipe/Pipe.tscn")
+var score := 0
 
 
 func _ready() -> void:
@@ -17,8 +18,14 @@ func _on_PipeSpawnTimer_timeout() -> void:
 	pipe.position = Vector2(get_viewport_rect().size.x + 100, get_viewport_rect().size.y / 2)
 
 	pipe.connect("hit_pipe", self, "_on_Pipe_hit_pipe")
-	add_child(pipe)
+	pipe.connect("score_point", self, "_on_Pipe_score_point")
+	$Pipes.add_child(pipe)
 
 
 func _on_Pipe_hit_pipe() -> void:
 	$Bird.queue_free()
+
+
+func _on_Pipe_score_point() -> void:
+	score += 1
+	$ScoreLabel.text = "Score: %d" % score
