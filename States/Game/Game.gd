@@ -24,9 +24,17 @@ func _on_PipeSpawnTimer_timeout() -> void:
 
 
 func _on_Pipe_hit_pipe() -> void:
-	$Bird.queue_free()
+	game_over()
+
+
+func _on_Border_body_entered(_body: Node) -> void:
+	game_over()
 
 
 func _on_Pipe_score_point() -> void:
 	score += 1
 	$ScoreLabel.text = "Score: %d" % score
+
+
+func game_over() -> void:
+	$Bird.queue_free()

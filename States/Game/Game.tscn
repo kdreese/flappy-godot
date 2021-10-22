@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://States/Game/Game.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Bird/Bird.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 640, 8 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -25,4 +28,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Ceiling" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2( 640, -8 )
+shape = SubResource( 1 )
+
+[node name="Floor" type="Area2D" parent="."]
+position = Vector2( 0, 736 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2( 640, -8 )
+shape = SubResource( 1 )
+
 [connection signal="timeout" from="PipeSpawnTimer" to="." method="_on_PipeSpawnTimer_timeout"]
+[connection signal="body_entered" from="Ceiling" to="." method="_on_Border_body_entered"]
+[connection signal="body_entered" from="Floor" to="." method="_on_Border_body_entered"]
