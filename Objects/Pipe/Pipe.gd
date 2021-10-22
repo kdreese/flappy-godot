@@ -8,3 +8,5 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position.x -= SPEED * delta
+	if position.x < -100:
+		queue_free()
