@@ -6,7 +6,7 @@ var score := 0
 
 
 func _ready() -> void:
-	pass
+	randomize()
 
 
 func _process(_delta: float) -> void:
@@ -15,7 +15,8 @@ func _process(_delta: float) -> void:
 
 func _on_PipeSpawnTimer_timeout() -> void:
 	var pipe = pipe_scene.instance()
-	pipe.position = Vector2(get_viewport_rect().size.x + 100, get_viewport_rect().size.y / 2)
+	var offset = rand_range(-200, 200)
+	pipe.position = Vector2(get_viewport_rect().size.x + 100, get_viewport_rect().size.y / 2 + offset)
 
 	pipe.connect("hit_pipe", self, "_on_Pipe_hit_pipe")
 	pipe.connect("score_point", self, "_on_Pipe_score_point")
