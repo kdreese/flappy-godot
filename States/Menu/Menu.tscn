@@ -25,9 +25,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 319.0
-margin_top = 138.0
+margin_top = 82.0
 margin_right = 960.0
-margin_bottom = 581.0
+margin_bottom = 638.0
 custom_constants/separation = 100
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
@@ -39,7 +39,7 @@ text = "Flappy Godot"
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 249.0
 margin_right = 641.0
-margin_bottom = 443.0
+margin_bottom = 556.0
 custom_constants/separation = 32
 
 [node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
@@ -47,11 +47,18 @@ margin_right = 641.0
 margin_bottom = 81.0
 text = "Start Game"
 
-[node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
 margin_top = 113.0
 margin_right = 641.0
 margin_bottom = 194.0
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 226.0
+margin_right = 641.0
+margin_bottom = 307.0
 text = "Exit Game"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

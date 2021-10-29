@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if alive and Input.is_action_just_pressed("game_jump"):
+	if alive and Input.is_action_just_pressed("jump"):
 		velocity.y = JUMP_BOOST
 	else:
 		velocity.y += GRAVITY * delta
