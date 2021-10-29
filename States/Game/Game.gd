@@ -38,3 +38,9 @@ func _on_Pipe_score_point() -> void:
 
 func game_over() -> void:
 	$Bird.queue_free()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("to_menu"):
+		var error = get_tree().change_scene("res://States/Menu/Menu.tscn")
+		assert(not error)
