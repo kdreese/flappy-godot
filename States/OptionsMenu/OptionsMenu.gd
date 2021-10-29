@@ -1,4 +1,4 @@
-extends ColorRect
+extends CenterContainer
 
 
 var current_mapping_key = null
@@ -23,7 +23,7 @@ func update_text() -> void:
 			jump_text += event.as_text()
 	if jump_text.length() == 0:
 		jump_text = "<Unmapped>"
-	$CenterContainer/VBoxContainer/GridContainer/JumpKeys.text = jump_text
+	$VBoxContainer/GridContainer/JumpKeys.text = jump_text
 
 
 func _on_AddJumpButton_pressed() -> void:

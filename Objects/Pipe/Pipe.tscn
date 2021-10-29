@@ -17,6 +17,7 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="Polygon2D" type="Polygon2D" parent="Pipe1"]
+modulate = Color( 1, 1.5, 1, 1 )
 color = Color( 0, 0.784314, 0, 1 )
 polygon = PoolVector2Array( -48, -256, 48, -256, 48, 256, -48, 256 )
 
@@ -27,6 +28,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, 384 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Pipe2"]
+modulate = Color( 1, 1.5, 1, 1 )
 color = Color( 0, 0.784314, 0, 1 )
 polygon = PoolVector2Array( -48, -256, 48, -256, 48, 256, -48, 256 )
 
