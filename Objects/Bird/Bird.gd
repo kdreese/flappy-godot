@@ -28,7 +28,6 @@ func _physics_process(delta: float) -> void:
 	velocity.y += GRAVITY * delta
 
 	if alive and Input.is_action_just_pressed("jump"):
-		$Line2D.rotation = -0.75
 		velocity.y = JUMP_BOOST
 
 	velocity = move_and_slide(velocity)
