@@ -37,7 +37,11 @@ func _on_Pipe_score_point() -> void:
 
 
 func game_over() -> void:
-	$Bird.queue_free()
+	if $Bird.alive:
+		$Bird.die()
+		for pipe in get_tree().get_nodes_in_group("Pipes"):
+			pipe.moving = false
+		$PipeSpawnTimer.stop()
 
 
 func _unhandled_input(event: InputEvent) -> void:

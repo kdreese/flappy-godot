@@ -10,7 +10,7 @@ extents = Vector2( 640, 8 )
 script = ExtResource( 1 )
 
 [node name="UI" type="Node2D" parent="."]
-z_index = 1
+z_index = 100
 
 [node name="ScoreLabel" type="Label" parent="UI"]
 margin_left = 93.0
@@ -26,6 +26,7 @@ __meta__ = {
 
 [node name="Bird" parent="." instance=ExtResource( 2 )]
 position = Vector2( 300, 360 )
+z_index = 5
 
 [node name="PipeSpawnTimer" type="Timer" parent="."]
 wait_time = 2.0

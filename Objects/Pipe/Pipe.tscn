@@ -8,7 +8,7 @@ extents = Vector2( 48, 256 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 136 )
 
-[node name="Pipe" type="Node2D"]
+[node name="Pipe" type="Node2D" groups=["Pipes"]]
 script = ExtResource( 1 )
 
 [node name="Pipe1" type="Area2D" parent="."]
