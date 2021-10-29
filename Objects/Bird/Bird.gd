@@ -17,14 +17,18 @@ func die() -> void:
 
 
 func _process(delta: float) -> void:
-	if not alive:
+	if alive:
+		# 300 is the pipe's leftward speed
+		$Line2D.rotation = Vector2(300, velocity.y).angle()
+	else:
 		$Line2D.rotation += ROTATE_SPEED * delta
 
 
-
 func _physics_process(delta: float) -> void:
+	velocity.y += GRAVITY * delta
+
 	if alive and Input.is_action_just_pressed("jump"):
+		$Line2D.rotation = -0.75
 		velocity.y = JUMP_BOOST
-	else:
-		velocity.y += GRAVITY * delta
+
 	velocity = move_and_slide(velocity)
