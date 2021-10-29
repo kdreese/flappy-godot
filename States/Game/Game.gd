@@ -37,14 +37,19 @@ func _on_Pipe_score_point() -> void:
 
 
 func game_over() -> void:
-	if $Bird.alive:
-		$Bird.die()
-		for pipe in get_tree().get_nodes_in_group("Pipes"):
-			pipe.moving = false
-		$PipeSpawnTimer.stop()
+	if not $Bird.alive:
+		return
+	$Bird.die()
+	for pipe in get_tree().get_nodes_in_group("Pipes"):
+		pipe.moving = false
+	$PipeSpawnTimer.stop()
+	var game_over_timer := get_tree().create_timer(2)
+	yield(game_over_timer, "timeout")
+	var error = get_tree().change_scene("res://States/Menu/Menu.tscn")
+	assert(not error)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("to_menu"):
+	if event.is_action_pressed("quit"):
 		var error = get_tree().change_scene("res://States/Menu/Menu.tscn")
 		assert(not error)
