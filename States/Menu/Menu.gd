@@ -1,8 +1,8 @@
-extends ColorRect
+extends CenterContainer
 
 
 func _ready() -> void:
-	$CenterContainer/VBoxContainer/VBoxContainer/StartButton.grab_focus()
+	$VBoxContainer/VBoxContainer/StartButton.grab_focus()
 
 
 func _on_StartButton_pressed() -> void:

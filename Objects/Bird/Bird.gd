@@ -18,7 +18,7 @@ func die() -> void:
 
 func _process(delta: float) -> void:
 	if not alive:
-		rotation += ROTATE_SPEED * delta
+		$Line2D.rotation += ROTATE_SPEED * delta
 
 
 

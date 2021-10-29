@@ -7,58 +7,50 @@
 size = 128
 font_data = ExtResource( 1 )
 
-[node name="Menu" type="ColorRect"]
+[node name="Menu" type="CenterContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.211765, 0.768627, 0.827451, 1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 319.0
 margin_top = 82.0
 margin_right = 960.0
 margin_bottom = 638.0
 custom_constants/separation = 100
 
-[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="VBoxContainer"]
 margin_right = 641.0
 margin_bottom = 149.0
 custom_fonts/font = SubResource( 1 )
 text = "Flappy Godot"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 margin_top = 249.0
 margin_right = 641.0
 margin_bottom = 556.0
 custom_constants/separation = 32
 
-[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+[node name="StartButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 margin_right = 641.0
 margin_bottom = 81.0
 text = "Start Game"
 
-[node name="OptionsButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 margin_top = 113.0
 margin_right = 641.0
 margin_bottom = 194.0
 text = "Options"
 
-[node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 margin_top = 226.0
 margin_right = 641.0
 margin_bottom = 307.0
 text = "Exit Game"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
