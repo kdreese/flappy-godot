@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://States/Game/Game.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Bird/Bird.tscn" type="PackedScene" id=2]
+[ext_resource path="res://States/Game/GameOverScreen.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 640, 8 )
@@ -29,6 +30,10 @@ text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GameOverScreen" parent="UI" instance=ExtResource( 3 )]
+visible = false
+rect_min_size = Vector2( 1280, 720 )
 
 [node name="Pipes" type="Node" parent="."]
 

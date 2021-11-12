@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://States/OptionsMenu/OptionsMenu.gd" type="Script" id=1]
+[ext_resource path="res://Resources/IHateComicSansSmaller.tres" type="DynamicFont" id=2]
 
 [node name="OptionsMenu" type="CenterContainer"]
 anchor_right = 1.0
@@ -11,53 +12,60 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 390.0
-margin_top = 141.0
-margin_right = 889.0
-margin_bottom = 578.0
+margin_left = 473.0
+margin_top = 174.0
+margin_right = 806.0
+margin_bottom = 545.0
 custom_constants/separation = 100
 
 [node name="Title" type="Label" parent="VBoxContainer"]
-margin_right = 499.0
+margin_right = 333.0
 margin_bottom = 75.0
 text = "Options"
 align = 1
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
 margin_top = 175.0
-margin_right = 499.0
-margin_bottom = 256.0
+margin_right = 333.0
+margin_bottom = 223.0
 custom_constants/hseparation = 32
 columns = 4
 
 [node name="JumpTitle" type="Label" parent="VBoxContainer/GridContainer"]
 margin_top = 3.0
-margin_right = 168.0
-margin_bottom = 78.0
+margin_right = 93.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 2 )
 text = "Jump: "
 
 [node name="JumpKeys" type="Label" parent="VBoxContainer/GridContainer"]
-margin_left = 200.0
+margin_left = 125.0
 margin_top = 3.0
-margin_right = 200.0
-margin_bottom = 78.0
+margin_right = 125.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 2 )
 
 [node name="AddJumpButton" type="Button" parent="VBoxContainer/GridContainer"]
-margin_left = 232.0
-margin_right = 334.0
-margin_bottom = 81.0
+margin_left = 157.0
+margin_right = 220.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 2 )
 text = "Add"
 
 [node name="ResetJumpButton" type="Button" parent="VBoxContainer/GridContainer"]
-margin_left = 366.0
-margin_right = 499.0
-margin_bottom = 81.0
+margin_left = 252.0
+margin_right = 333.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 2 )
 text = "Clear"
 
 [node name="ReturnButton" type="Button" parent="VBoxContainer"]
-margin_top = 356.0
-margin_right = 499.0
-margin_bottom = 437.0
+margin_left = 117.0
+margin_top = 323.0
+margin_right = 215.0
+margin_bottom = 371.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 2 )
 text = "Return"
 
 [connection signal="pressed" from="VBoxContainer/GridContainer/AddJumpButton" to="." method="_on_AddJumpButton_pressed"]
