@@ -34,6 +34,7 @@ func _on_Border_body_entered(_body: Node) -> void:
 func _on_Pipe_score_point() -> void:
 	score += 1
 	$UI/ScoreLabel.text = "Score: %d" % score
+	$PointSound.play()
 
 
 func game_over() -> void:

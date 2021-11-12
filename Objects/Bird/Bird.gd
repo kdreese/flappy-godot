@@ -14,6 +14,7 @@ func die() -> void:
 		return
 	alive = false
 	velocity = Vector2(-200, -200)
+	$DeathSound.play()
 
 
 func _process(delta: float) -> void:
@@ -29,5 +30,6 @@ func _physics_process(delta: float) -> void:
 
 	if alive and Input.is_action_just_pressed("jump"):
 		velocity.y = JUMP_BOOST
+		$JumpSound.play()
 
 	velocity = move_and_slide(velocity)

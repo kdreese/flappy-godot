@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://Resources/Sounds/Die.wav" type="AudioStream" id=1]
 [ext_resource path="res://Objects/Bird/Bird.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Sounds/Jump.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 32.0
@@ -21,3 +23,9 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 antialiased = true
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
