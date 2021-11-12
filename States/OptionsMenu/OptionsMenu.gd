@@ -47,5 +47,6 @@ func remap_action_to(event):
 
 
 func _on_ReturnButton_pressed() -> void:
+	SaveData.save_settings()
 	var error = get_tree().change_scene("res://States/Menu/Menu.tscn")
 	assert(not error)

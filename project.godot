@@ -14,6 +14,10 @@ config/name="flappy-godot"
 run/main_scene="res://States/Menu/Menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SaveData="*res://States/OptionsMenu/SaveData.gd"
+
 [display]
 
 window/size/width=1280
