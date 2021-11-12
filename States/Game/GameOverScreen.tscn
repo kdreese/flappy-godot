@@ -1,0 +1,118 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Resources/IHateComicSansSmaller.tres" type="DynamicFont" id=1]
+[ext_resource path="res://States/Game/GameOverScreen.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "EntranceAnimation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("PanelContainer:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 445, -350 ), Vector2( 445, 200.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.392157 ) ]
+}
+
+[node name="GameOverScreen" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -195.0
+margin_top = -710.0
+margin_right = 195.0
+margin_bottom = -391.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 383.0
+margin_bottom = 312.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
+margin_left = 29.0
+margin_top = 26.0
+margin_right = 346.0
+margin_bottom = 278.0
+custom_constants/separation = 15
+
+[node name="Title" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+margin_right = 317.0
+margin_bottom = 75.0
+text = "Game Over!"
+align = 1
+
+[node name="Score" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+margin_top = 90.0
+margin_right = 317.0
+margin_bottom = 132.0
+custom_fonts/font = ExtResource( 1 )
+text = "You Scored: 0"
+align = 1
+
+[node name="HighScore" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
+margin_top = 147.0
+margin_right = 317.0
+margin_bottom = 189.0
+custom_fonts/font = ExtResource( 1 )
+text = "High Score: 0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer/VBoxContainer"]
+margin_top = 204.0
+margin_right = 317.0
+margin_bottom = 252.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="ReplayButton" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 92.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 1 )
+text = "Replay"
+
+[node name="MenuButton" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 112.0
+margin_right = 317.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 1 )
+text = "Back to Menu"
+
+[node name="EntranceAnimation" type="AnimationPlayer" parent="."]
+anims/EntranceAnimation = SubResource( 1 )
+
+[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer/ReplayButton" to="." method="_on_ReplayButton_pressed"]
+[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_MenuButton_pressed"]

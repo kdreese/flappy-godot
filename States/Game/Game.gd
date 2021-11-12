@@ -43,10 +43,10 @@ func game_over() -> void:
 	for pipe in get_tree().get_nodes_in_group("Pipes"):
 		pipe.moving = false
 	$PipeSpawnTimer.stop()
-	var game_over_timer := get_tree().create_timer(2)
+	var game_over_timer := get_tree().create_timer(0.75)
 	yield(game_over_timer, "timeout")
-	var error = get_tree().change_scene("res://States/Menu/Menu.tscn")
-	assert(not error)
+	$UI/GameOverScreen.show()
+	$UI/GameOverScreen.show_screen(score)
 
 
 func _unhandled_input(event: InputEvent) -> void:
