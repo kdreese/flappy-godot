@@ -13,10 +13,10 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 473.0
-margin_top = 174.0
+margin_top = 170.0
 margin_right = 806.0
-margin_bottom = 545.0
-custom_constants/separation = 100
+margin_bottom = 550.0
+custom_constants/separation = 35
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 margin_right = 333.0
@@ -25,9 +25,9 @@ text = "Options"
 align = 1
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
-margin_top = 175.0
+margin_top = 110.0
 margin_right = 333.0
-margin_bottom = 223.0
+margin_bottom = 158.0
 custom_constants/hseparation = 32
 columns = 4
 
@@ -59,15 +59,41 @@ margin_bottom = 48.0
 custom_fonts/font = ExtResource( 2 )
 text = "Clear"
 
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_left = 41.0
+margin_top = 193.0
+margin_right = 291.0
+margin_bottom = 297.0
+rect_min_size = Vector2( 250, 0 )
+size_flags_horizontal = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MuteToggle" type="CheckButton" parent="VBoxContainer/VBoxContainer"]
+margin_right = 250.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 2 )
+text = "Sound:"
+
+[node name="FullscreenToggle" type="CheckButton" parent="VBoxContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 250.0
+margin_bottom = 104.0
+custom_fonts/font = ExtResource( 2 )
+text = "Fullscreen:"
+
 [node name="ReturnButton" type="Button" parent="VBoxContainer"]
 margin_left = 117.0
-margin_top = 323.0
+margin_top = 332.0
 margin_right = 215.0
-margin_bottom = 371.0
+margin_bottom = 380.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 2 )
 text = "Return"
 
 [connection signal="pressed" from="VBoxContainer/GridContainer/AddJumpButton" to="." method="_on_AddJumpButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/ResetJumpButton" to="." method="_on_ResetJumpButton_pressed"]
+[connection signal="toggled" from="VBoxContainer/VBoxContainer/MuteToggle" to="." method="_on_MuteToggle_toggled"]
+[connection signal="toggled" from="VBoxContainer/VBoxContainer/FullscreenToggle" to="." method="_on_FullscreenToggle_toggled"]
 [connection signal="pressed" from="VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]

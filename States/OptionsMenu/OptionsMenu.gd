@@ -5,10 +5,10 @@ var current_mapping_key = null
 
 
 func _ready() -> void:
-	update_text()
+	update_contents()
 
 
-func update_text() -> void:
+func update_contents() -> void:
 	var jump_text := ""
 	for event in InputMap.get_action_list("jump"):
 		if jump_text.length() > 0:
@@ -24,6 +24,8 @@ func update_text() -> void:
 	if jump_text.length() == 0:
 		jump_text = "<Unmapped>"
 	$VBoxContainer/GridContainer/JumpKeys.text = jump_text
+	$VBoxContainer/VBoxContainer/MuteToggle.pressed = SaveData.sound
+	$VBoxContainer/VBoxContainer/FullscreenToggle.pressed = OS.window_fullscreen
 
 
 func _on_AddJumpButton_pressed() -> void:
@@ -32,13 +34,13 @@ func _on_AddJumpButton_pressed() -> void:
 
 func _on_ResetJumpButton_pressed() -> void:
 	InputMap.action_erase_events("jump")
-	update_text()
+	update_contents()
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if current_mapping_key:
 		remap_action_to(event)
-		update_text()
+		update_contents()
 		current_mapping_key = null
 
 
@@ -50,3 +52,12 @@ func _on_ReturnButton_pressed() -> void:
 	SaveData.save_settings()
 	var error = get_tree().change_scene("res://States/Menu/Menu.tscn")
 	assert(not error)
+
+
+func _on_MuteToggle_toggled(button_pressed: bool) -> void:
+	SaveData.sound = button_pressed
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), not SaveData.sound)
+
+
+func _on_FullscreenToggle_toggled(button_pressed: bool) -> void:
+	OS.window_fullscreen = button_pressed
